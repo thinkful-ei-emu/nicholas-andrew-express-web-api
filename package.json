@@ -1,0 +1,25 @@
+{
+  "name": "express-web-api",
+  "version": "1.0.0",
+  "description": "express api exercise",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  },
+  "scripts": {
+    "test": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thinkful-ei-emu/nicholas-andrew-express-web-api.git"
+  },
+  "author": "nicholas, andrew",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thinkful-ei-emu/nicholas-andrew-express-web-api/issues"
+  },
+  "homepage": "https://github.com/thinkful-ei-emu/nicholas-andrew-express-web-api#readme"
+}
