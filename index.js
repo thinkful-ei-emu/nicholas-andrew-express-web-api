@@ -28,5 +28,40 @@ server.get('/cipher', (req, res) => {
   res.end();
 });
 
-server.listen(8080, () => console.log('Express server is listening on port 8080'));
 
+server.get('/lotto', (req, res) => {
+  let num = req.query.num.map(n => parseInt(n));
+  let winningNums = [];
+  let matchCount = 0;
+
+  for (let i = 0; i < 6; i++) {
+    winningNums.push(Math.floor(Math.random() * 20));
+  }
+
+  for (let i = 0; i < num.length; i++) {
+    for (let j = 0; j < winningNums.length; j++) {
+      if (num[i] === winningNums[j]) {
+        winningNums.splice(j, 1);
+        matchCount++;
+      }
+    }
+  }
+
+  let result;
+  if (matchCount < 4) {
+    result = 'Sorry, you lose...';
+  }
+  else if (matchCount === 4) {
+    result = 'Free ticket...';
+  }
+  else {
+    result = 'Winner!';
+  }
+
+  res.send(`<p>${result}</p>`);
+
+  console.log(num, winningNums, matchCount);
+  res.end();
+});
+
+server.listen(8080, () => console.log('Express server is listening on port 8080'));
